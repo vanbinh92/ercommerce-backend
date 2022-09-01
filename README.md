@@ -10,11 +10,6 @@ Runs the app in the development mode.\
 Open [http://localhost:8000](http://localhost:8000) to run server
 
 
-
-### Clone Code
-`git clone https://github.com/RacolBan/NodeJS-s-The-Graduate-Project-.git`
-Run that code above to clone folder git contain code server-side
-
 ### `Install Package`
 
 Build a file package.json with  [npm init -y]
