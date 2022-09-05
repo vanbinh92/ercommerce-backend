@@ -490,6 +490,7 @@ const searchProducts = async (req, res) => {
         { model: imageProduct },
       ],
       raw: true,
+      order: [["avgRating", "desc"]]
     });
     res.status(200).json({
       message: "Search successfully",
