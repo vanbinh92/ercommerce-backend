@@ -133,15 +133,11 @@ const updateManufacturer = async (req, res) => {
     const update = {};
 
     if (name) {
-      const foundName = await ManufactureModel.findOne({
+      await ManufactureModel.findOne({
         where: {
           name,
         },
       });
-      if (foundName) {
-        return res.status(409).json({ message: "name existed" });
-      }
-
       update.name = name;
     }
 
