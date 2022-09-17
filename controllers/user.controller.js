@@ -96,6 +96,7 @@ const createNewInfor = async (req, res) => {
 
     // SAVE ACCOUNT
     const newAccount = await AccountModel.create(account, { transaction: t });
+    
     // prevent hashPash from showing on UI
     delete newAccount.dataValues.hashPwd;
 

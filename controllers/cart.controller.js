@@ -32,14 +32,13 @@ const getCartByUserId = async (req, res) => {
       include: { model: ProductModel, include: { model: imageProduct } },
       raw: true,
     });
-    
     const newCarts = carts.map((item) => {
       return {
         id: item["product.id"],
         name: item["product.name"],
         price: item["product.price"],
         description: item["product.description"],
-        image: item["product.imageProduct.image"],
+        "imageProduct.image": item["product.imageProduct.image"],
         quantityProduct: item.quantityProduct,
       };
     });

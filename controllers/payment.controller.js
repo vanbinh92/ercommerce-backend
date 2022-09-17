@@ -100,6 +100,7 @@ const initPay = async (req, res) => {
     await sendMail(
       `${email}`,
       `Successful Payment`,
+      false,
       `Thanks for ordering at our BK store
         Payment Details:
         #####################################

@@ -65,8 +65,7 @@ const createCheckout = async (req, res) => {
   res.send({ url: session.url });
 };
 let endpointSecret;
-endpointSecret =
-  "whsec_2I0ptDP0Lp4v4w745hxv9Duboz5cVjRl";
+endpointSecret = "whsec_2I0ptDP0Lp4v4w745hxv9Duboz5cVjRl";
 
 const webhook = async (req, res) => {
   let data;
@@ -91,7 +90,7 @@ const webhook = async (req, res) => {
     data = req.body.data.object;
     eventType = req.body.type;
   }
-  
+
   // Handle the checkout.session.completed event
   if (eventType === "checkout.session.completed") {
     const t = await sequelize.transaction();
@@ -152,6 +151,7 @@ const webhook = async (req, res) => {
       await sendMail(
         `${email}`,
         `Successful Payment`,
+        false,
         `Thanks for ordering at our BK store
               Payment Details:
               #####################################
