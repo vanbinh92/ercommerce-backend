@@ -103,14 +103,14 @@ const initPay = async (req, res) => {
       false,
       `Thanks for ordering at our BK store
         Payment Details:
-        #####################################
+        ###########################
         PaymentID: ${newPayment.id},
         Payment method: ${method},
         Recipient: ${fullName},
         Phone: ${phone},
         Address: ${address},
         Paid :$${totalPrice}
-        #####################################
+        ###########################
         Good luck and have fun!
     `
     );

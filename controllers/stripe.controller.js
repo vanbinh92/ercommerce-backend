@@ -6,6 +6,7 @@ const {
 } = require("../models");
 const sequelize = require("../models/config.model");
 const sendMail = require("../services/email.service");
+require("dotenv").config();
 
 const stripe = require("stripe")(
   "sk_test_51LVQHSIIOheAIx48nIk6pYpsJUjrwzAhFGCYQxhPvctSA7v4EkgnAA07qddXh9NPNaHgJoraGwBGk5u5ILzfG09100EQXCswTr"
@@ -65,7 +66,7 @@ const createCheckout = async (req, res) => {
   res.send({ url: session.url });
 };
 let endpointSecret;
-endpointSecret = "whsec_2I0ptDP0Lp4v4w745hxv9Duboz5cVjRl";
+endpointSecret = process.env.STRIPE_SECRET;
 
 const webhook = async (req, res) => {
   let data;
@@ -154,11 +155,11 @@ const webhook = async (req, res) => {
         false,
         `Thanks for ordering at our BK store
               Payment Details:
-              #####################################
+              ###########################
               PaymentID: ${newPayment.id},
               Payment method: Visa/Master Cart ,
               Paid :$${totalPrice}
-              #####################################
+              ###########################
               Good luck and have fun!
             `
       );
